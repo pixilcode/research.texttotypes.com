@@ -1,6 +1,6 @@
 +++
 title = "Fixed-Point Parser: Types and Mechanics"
-description = "An dive into the types and mechanics of the fixed-point parser"
+description = "A dive into the types and mechanics of the fixed-point parser"
 date = 2024-10-03
 
 [taxonomies]
@@ -27,6 +27,20 @@ to be called.
 
 ```ocaml
 type parser = index -> parser_continuation -> state_transformer
+```
+
+
+# Parser Continuation
+
+When you run a parser, it usually returns some value representing what was
+parsed. It also advances the parent parser (if there is one) along the string.
+We represent this with an `output_pair`. An `output_pair` is simply a
+value/index pair. The value is the result of the parser, and the index is the
+index on which the parser ended. For example, given the string `"12ab"` and a 
+parser that parses numbers, the parser will return the number `12` and the index `2` (assuming zero-based indexing).
+
+```ocaml
+type output_pair = index * value
 ```
 
 
@@ -86,17 +100,25 @@ type parser_location = rule_tag * index
 
 ## Location Info
 
-Earlier, we mentioned that the 'parser call' `P 1` returns some parse
-information. What is this information? It depends on exactly what you're trying
-to parse, but there are some things that we will need every time for the
-fixed-point parser.
+We mentioned that the parser location info is mapped to some information related
+to that location. In order to understand what that information is, we need to
+look at a couple of different concepts in the parser.
 
-When we call a 
+### Parser "Output"
+
+Earlier, we mentioned that the 'parser call' `P 1` 'returns' some parse
+information. What does a parser usually return? Some value representing the
+results of its parse, and the index of the end of the parse (so that another
+parser can know where to start). We can represent this return value as a what
+we'll call an `output_pair`.
+
+```ocaml
+type output_pair = index * value
+```
+
+### Parser Continuation
 
 
-# Parser Continuation
-
-TODO
 
 
 # Building a simple parser
