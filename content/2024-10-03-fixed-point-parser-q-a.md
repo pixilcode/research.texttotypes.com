@@ -1,15 +1,20 @@
 +++
-title = "Fixed-Point Parser Q&A and Simple Concepts"
-description = "Some Q&A about the fixed-point parser"
-date = 2024-09-30
+title = "Fixed-Point Parser: Types and Mechanics"
+description = "An dive into the types and mechanics of the fixed-point parser"
+date = 2024-10-03
 
 [taxonomies]
-tags = ["overview", "fixed-point parsing"]
+tags = ["fixed-point parsing"]
 +++
 
-## Types and Concepts
+A fixed-point parser can seem like a complicated idea. It's got lots of types,
+and lots of functions being passed around. Plus, it's got some monads involved,
+which can be quite intimidating!
 
-### What is a parser conceptually?
+However, it isn't as complex as it may seems once you understand some of the
+underlying concepts. So, let's dive into what makes up a fixed-point parser!
+
+# The Parser
 
 In the fixed-point parser, a parser is represented as a function that takes
 **the current index** in the parse string and **a continuation to call once it
@@ -18,32 +23,30 @@ failed, or it could mean something else. In addition, the continuation doesn't
 ever have to be called.
 
 ```ocaml
-type parser = idx:index -> next:parser_continuation -> state_transformer
+type parser = index -> parser_continuation -> state_transformer
 ```
 
 
-#### State Transformer
+# State Transformer
 
-Once it has the index and the continuation, which we will refer to as `idx` and
-`next` respectively, it then **transforms the state that it is given**. In
-imperative languages, the state could be stored as a sort of 'global state' that
-is updated by the parser. In a functional language, this is probably going to be
-done with a State monad, although it can be done with algebraic effects if the
-language supports that.
-
-Thus, this state transformation could be represented as a function that takes a
-state and returns a state.
+Once it has the index and the continuation, it then **transforms the state that
+it is given**. Thus, this state transformation could be represented as a
+function that takes a state and returns a state.
 
 ```ocaml
 type state_transformer = state -> state
 ```
 
+*Note that in imperative languages, the state could be stored as a sort of
+'global state' that is updated by the parser. In a language that supports it,
+the state could also be managed with algebraic effects.*
 
-#### State
+
+# State
 
 What is the "state" of the program that we keep referring to? It's a map from a
-given parser "location" to certain values associated with that location (we will
-get into what this is in a second).
+given "parser location" to certain information associated with that location (we
+will get into what this information is in a second).
 
 ```ocaml
 (* imagine some easy-to-use hashmap instead of the
@@ -51,7 +54,8 @@ get into what this is in a second).
 type state = (parser_location, location_info) Map
 ```
 
-##### Parser Location
+
+## Parser Location
 
 The type of the `parser_location` is a pair, a `rule_tag` and an `index`. The
 easiest way to explain this is by considering a parser as a sort of 'function'.
@@ -64,7 +68,7 @@ that "when `P` is called at the index of `1`, it returns `foo`.
 
 ```ocaml
 let my_state =
-	(* ... run (P 1) and update the state with the result [foo] ... *)
+  (* ... run (P 1) and update the state with the result [foo] ... *)
 in
 Map.get_value_of ("P", 1) ~from:my_state (* => returns [foo] *)
 ```
@@ -77,19 +81,27 @@ type parser_location = rule_tag * index
 ```
 
 
-##### Location Info
+## Location Info
 
 Earlier, we mentioned that the 'parser call' `P 1` returns some parse
-information. What is this information? It depends on exactly what you're trying to
-parse, but there are some things that we will need every time for the fixed-point
-parser.
+information. What is this information? It depends on exactly what you're trying
+to parse, but there are some things that we will need every time for the
+fixed-point parser.
 
-#### Parser Continuation
+When we call a 
+
+
+# Parser Continuation
+
+TODO
+
+
+# Building a simple parser
 
 TODO
 
-#### Building a simple parser
 
-#### Tagging and Memoizing a Parser
+# Tagging and Memoizing a Parser
 
 TODO
+
