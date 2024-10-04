@@ -22,5 +22,16 @@ highlight_code = true
 
 # apollo setup
 theme = "auto"
-socials = []
-menu = []
+toc = true
+repo_url = "https://github.com/pixilcode/research.texttotypes.com/tree/main/content/"
+
+menu = [
+	{ name = "home", url = "/", weight = 1 },
+]
+
+socials = [
+	{ name = "github", url = "https://github.com/pixilcode/", icon = "github"}
+]
+
+
+# favicon = "/icon/favicon.png"

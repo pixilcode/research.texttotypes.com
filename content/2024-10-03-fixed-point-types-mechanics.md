@@ -5,6 +5,9 @@ date = 2024-10-03
 
 [taxonomies]
 tags = ["fixed-point parsing"]
+
+[extra]
+repo_view = true
 +++
 
 A fixed-point parser can seem like a complicated idea. It's got lots of types,
@@ -18,9 +21,9 @@ underlying concepts. So, let's dive into what makes up a fixed-point parser!
 
 In the fixed-point parser, a parser is represented as a function that takes
 **the current index** in the parse string and **a continuation to call once it
-is done**.  'done' could mean that it succeeded, or it could mean that it
-failed, or it could mean something else. In addition, the continuation doesn't
-ever have to be called.
+is done**.  'done' could mean that it succeeded, it could mean that it failed,
+or it could mean something else. In addition, the continuation doesn't ever have
+to be called.
 
 ```ocaml
 type parser = index -> parser_continuation -> state_transformer
