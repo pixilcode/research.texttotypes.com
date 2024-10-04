@@ -7,6 +7,11 @@ compile_sass = false
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+# The theme of the website
+theme = "apollo"
+
+taxonomies = [{name = "tags"}]
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -14,3 +19,8 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+
+# apollo setup
+theme = "auto"
+socials = []
+menu = []
