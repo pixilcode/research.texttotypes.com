@@ -59,6 +59,33 @@ parser that parses numbers, the parser will return the number `12` and the index
 type output_pair = index * value
 ```
 
+
+### Value and Index
+
+As a side note, we need to quickly discuss what `index` and `value` are. They can
+change depending how you decide to represent the two concepts, so we define these
+only so that our code later makes sense.
+
+`index` provides information about where you are in the string. For our
+purposes, we will use an `string * int` pair. The `string` is the string that we
+are attempting to parse.  This doesn't change throughout the whole parsing. The
+`int` is the index of the current character in the string, with the index of the first
+character being `0`.
+
+```ocaml
+(* (parse string * current character index) *)
+type index = string * int
+```
+
+`value` is the value that you want your parser to produce. In our case, we will
+simply return the parsed string. Thus, we will simply use `string`s for our
+`value`s.
+
+```ocaml
+type value = string
+```
+
+
 ## Parser Continuation Result
 
 Whatever happens after a parser may possibly update the state of the program.
@@ -151,6 +178,8 @@ type location_info = (output_pair set) * (parser_continuation list)
 
 
 # Building a simple parser
+
+Now that we have the basic concepts down, let's build a parser of our own!
 
 
 # Tagging and Memoizing a Parser
