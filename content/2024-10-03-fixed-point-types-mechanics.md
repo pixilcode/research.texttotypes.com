@@ -78,8 +78,7 @@ type index = string * int
 ```
 
 `value` is the value that you want your parser to produce. In our case, we will
-simply return the parsed string. Thus, we will simply use `string`s for our
-`value`s.
+simply return the parsed string. Thus, we will use `string`s for our `value`s.
 
 ```ocaml
 type value = string
@@ -179,7 +178,73 @@ type location_info = (output_pair set) * (parser_continuation list)
 
 # Building a simple parser
 
-Now that we have the basic concepts down, let's build a parser of our own!
+Now that we have the basic concepts down, let's build a parser of our own! We will
+build a parser that reads a single character from the string and advances to the
+next character, called `any_char`.
+
+First, let's remember what a parser is. A parser takes an `index`, the current
+location in the parse string, and a `parser_continuation`, the 'done' function
+for the parser. We will call these `idx` and `complete`, respectively. 
+
+```ocaml
+let any_char : parser =
+  fun (idx : index) (complete : parser_continuation) ->
+```
+
+As mentioned previously, the index is a `string * int` pair, so we will unwrap that
+so we can get the current character.
+
+```ocaml
+    let parse_str, curr_char_idx = idx in
+```
+
+We want to make sure that we handle the case if the index is past the end of the
+parse string, so we will use an if statement to handle this.
+
+```ocaml
+    if curr_char_idx < (String.length parse_str) then
+```
+
+If the index is inside the parse string, we will get the character at the index.
+We will then convert the character to a string (since we are returning the
+string that was parsed). Finally, we will advance the index by 1. Once we have
+done that, we can 'finish' our parser by calling `complete` with the new index
+and our character string as an `output_pair`. This will generate a
+`state_transformer` that will be returned by our parser.
+
+```ocaml
+      let c = String.get parse_str curr_char_idx in
+      let c_str = Char.to_string c in
+      let new_index = curr_char_idx + 1 in
+      complete (new_index, c_str) (* generates a state_transformer *)
+```
+
+Now, if the index is outside of the parse string, we want the parser to fail. How
+do we do this? We just don't succeed. In other words, if calling the `complete`
+continuation represents a parser succeeding, then we never call `complete`. However,
+we still need to return a `state_transformer`. So we will simply create a `state_transformer`
+that leaves the state unchanged.
+
+```ocaml
+    else
+      (fun state -> state) (* leave the state unchanged *)
+```
+
+And there you have it! A parser that parses any character and advances the index. The
+full code for this parser is below.
+
+```ocaml
+let any_char : parser =
+  fun (idx : index) (complete : parser_continuation) ->
+    let parse_str, curr_char_idx = idx in
+    if curr_char_idx < (String.length parse_str) then
+      let c = String.get parse_str curr_char_idx in
+      let c_str = Char.to_string c in
+      let new_index = curr_char_idx + 1 in
+      complete (new_index, c_str) (* generates a state_transformer *)
+    else
+      (fun state -> state) (* leave the state unchanged *)
+```
 
 
 # Tagging and Memoizing a Parser
