@@ -94,7 +94,7 @@ will get into what this information is in a second).
 
 ```ocaml
 (* imagine some easy-to-use hashmap instead of the
-   somewhat-complicated OCaml one *)
+   relatively complicated OCaml one *)
 type state = (parser_location, location_info) map
 ```
 
@@ -144,6 +144,8 @@ to continue using that value so that we can see if any off those produce a valid
 parse. Thus, we will keep a `list` of `parser_continuation`s.
 
 ```ocaml
+(* imagine some easy-to-use set, instead of the
+   relatively complicated OCaml one *)
 type location_info = (output_pair set) * (parser_continuation list)
 ```
 
