@@ -32,23 +32,50 @@ type parser = index -> parser_continuation -> state_transformer
 
 # Parser Continuation
 
+Notice that the parser takes a `parser_continuation` in addition to an `index`.
+This parser continuation could be considered to be a 'done' function. We call
+the parser continuation once the parser has completed.
+
+A continuation is called from within the parser. It may be called once, such as
+in the case of the unit parser `unit x`, where the parser doesn't parse anything
+and immediately calls the continuation with the value `x` and the current index.
+It also may be called multiple times, such as in the case of the alternation
+parser `A|B`, where it may complete with both `A` and `B`. It may also never be
+called, such as in the case of the `fail` parser, where it immediately fails,
+and thus never completes.
+
+
+## Parser "Output"
+
 When you run a parser, it usually returns some value representing what was
 parsed. It also advances the parent parser (if there is one) along the string.
 We represent this with an `output_pair`. An `output_pair` is simply a
 value/index pair. The value is the result of the parser, and the index is the
 index on which the parser ended. For example, given the string `"12ab"` and a 
-parser that parses numbers, the parser will return the number `12` and the index `2` (assuming zero-based indexing).
+parser that parses numbers, the parser will return the number `12` and the index
+`2` (assuming zero-based indexing).
 
 ```ocaml
 type output_pair = index * value
 ```
 
+## Parser Continuation Result
+
+Whatever happens after a parser may possibly update the state of the program.
+This doesn't make a ton of sense yet, since we don't know what is inside the
+state. We'll get to that next. The continuation will thus return a
+`state_transformer`.
+
+```ocaml
+type parser_continuation = output_pair -> state_transformer
+```
+
 
 # State Transformer
 
-Once it has the index and the continuation, it then **transforms the state that
-it is given**. Thus, this state transformation could be represented as a
-function that takes a state and returns a state.
+Once it has the index and the continuation, the parser then **transforms the
+state that it is given**. Thus, this state transformation could be represented
+as a function that takes a state and returns a state.
 
 ```ocaml
 type state_transformer = state -> state
@@ -68,7 +95,7 @@ will get into what this information is in a second).
 ```ocaml
 (* imagine some easy-to-use hashmap instead of the
    somewhat-complicated OCaml one *)
-type state = (parser_location, location_info) Map
+type state = (parser_location, location_info) map
 ```
 
 
@@ -101,29 +128,27 @@ type parser_location = rule_tag * index
 ## Location Info
 
 We mentioned that the parser location info is mapped to some information related
-to that location. In order to understand what that information is, we need to
-look at a couple of different concepts in the parser.
+to that location. There are two pieces of information that we need to remember.
 
-### Parser "Output"
+First, we need to remember all of the values that the parser call has produced
+at this position. We want to do this so that if we arrive at this point with a
+new way to continue from this point (or in other words, a new
+`parser_continuation`), we will want to run that with each value that has been
+produced by this parser at this location. We will use a `set` of `output_pair`s
+for this.
 
-Earlier, we mentioned that the 'parser call' `P 1` 'returns' some parse
-information. What does a parser usually return? Some value representing the
-results of its parse, and the index of the end of the parse (so that another
-parser can know where to start). We can represent this return value as a what
-we'll call an `output_pair`.
+Next, we also need to remember all of the different possible ways that we can
+continue from this point. This is because if we discover that this parser has
+produced a new value, then we want to rerun all of the different possible ways
+to continue using that value so that we can see if any off those produce a valid
+parse. Thus, we will keep a `list` of `parser_continuation`s.
 
 ```ocaml
-type output_pair = index * value
+type location_info = (output_pair set) * (parser_continuation list)
 ```
-
-### Parser Continuation
-
-
 
 
 # Building a simple parser
-
-TODO
 
 
 # Tagging and Memoizing a Parser
