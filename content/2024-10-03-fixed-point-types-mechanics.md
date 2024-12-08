@@ -4,7 +4,7 @@ description = "A dive into the types and mechanics of the fixed-point parser"
 date = 2024-10-03
 
 [taxonomies]
-tags = ["fixed-point parsing"]
+tags = ["fixed-point parsing", "ocaml"]
 
 [extra]
 repo_view = true
