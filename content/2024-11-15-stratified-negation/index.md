@@ -5,6 +5,9 @@ date = 2024-11-15
 
 [taxonomies]
 tags = ["parsing negation", "fixed-point parsing"]
+
+[extra]
+repo_view = true
 +++
 
 # Stratified Negation
