@@ -10,8 +10,6 @@ tags = ["parsing negation", "fixed-point parsing"]
 repo_view = true
 +++
 
-# Stratified Negation
-
 In Datalog, "stratified negation" starts with turning rules into dependency
 graphs. A head depends on its clauses.
 
