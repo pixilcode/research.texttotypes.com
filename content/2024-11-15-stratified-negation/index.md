@@ -300,3 +300,14 @@ connected components, or SCCs. These SCCs contain cyclical dependencies. Next,
 we observed how to evaluate a dependency graph using fixed-point evaluation,
 first on the whole graph, then on SCCs. Finally, we`ve seen how negation factors
 into fixed-point evaluation.
+
+
+## Sources
+
+Here are some resources that helped me learn about stratified negation in datalog:
+
+* [CS 784 Lecture: Datalog with
+  Negation](https://pages.cs.wisc.edu/~paris/cs784-s17/lectures/lecture9.pdf)
+
+* [Negation in Datalog (YouTube) - Knowledge Based Systems, TU
+  Dresden](https://youtu.be/GNS-6W3s8KY?si=YTADVU6TFOhYnG5M)
