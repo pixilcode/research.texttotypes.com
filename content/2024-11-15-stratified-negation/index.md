@@ -54,7 +54,7 @@ been evaluated.
 At this point, we have successfully evaluated all of our rules.
 
 
-## Fixed-Point Evaluation
+# Fixed-Point Evaluation
 
 Up to this point, we haven`t really discussed what "evaluation" really means.
 With a datalog program, we start out with a collection of facts and some rules
@@ -191,7 +191,7 @@ once! While this isn't as valuable in this small program, this can bring massive
 speedups for programs with many rules and dependencies.
 
 
-## Stratified Evaluation
+# Stratified Evaluation
 
 The process that we have described is what we will refer to as "stratified
 evaluation". Put simply, we break the program into "stratifications" which are
@@ -219,7 +219,7 @@ numberings for a given program, such as the one shown below.
 ![Figure 11](./figure-11.svg)
 
 
-## Negation
+# Negation
 
 We have established how to evaluate Datalog problems in an effective way.
 However, though we've brieﬂy mentioned that negation exists, we haven't
@@ -295,7 +295,7 @@ dependencies produce fixed results.
 ![Figure 12](./figure-12.svg)
 
 
-## Conclusion
+# Conclusion
 
 In review, we've seen how datalog programs can be made into dependency graphs.
 We have then seen how those graphs can further be grouped into strongly
@@ -305,7 +305,7 @@ first on the whole graph, then on SCCs. Finally, we`ve seen how negation factors
 into fixed-point evaluation.
 
 
-## Sources
+# Sources
 
 Here are some resources that helped me learn about stratified negation in datalog:
 
