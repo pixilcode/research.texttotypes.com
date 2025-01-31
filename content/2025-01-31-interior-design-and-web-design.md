@@ -1,7 +1,7 @@
 +++
 title = "Interior Design and Web Design"
 description = "An observation of the similarities between interior design and web design"
-date = 2024-10-03
+date = 2025-01-31
 
 [taxonomies]
 tags = ["random-thought", "web-design"]
