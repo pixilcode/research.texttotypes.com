@@ -245,9 +245,3 @@ let any_char : parser =
     else
       (fun state -> state) (* leave the state unchanged *)
 ```
-
-
-# Tagging and Memoizing a Parser
-
-TODO
-
