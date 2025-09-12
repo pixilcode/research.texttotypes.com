@@ -19,7 +19,7 @@ highlight_code = true
 
 [extra]
 # apollo setup
-theme = "auto"
+theme = "toggle"
 toc = true
 repo_url = "https://github.com/pixilcode/research.texttotypes.com/tree/main/content/"
 
@@ -34,5 +34,5 @@ socials = [
 mathjax = true
 mathjax_dollar_inline_enable = true
 
+favicon = "/icon/favicon.png"
 
-# favicon = "/icon/favicon.png"
