@@ -1,4 +1,17 @@
-As a part of building Oneil, I was tasked with figuring out how interval
++++
+title = "Interval Arithmetic Analysis"
+description = "An analysis of different implementations of interval arithmetic"
+date = 2025-11-12
+
+[taxonomies]
+tags = ["oneil", "nim", "benchmark", "analysis"]
+
+[extra]
+repo_view = true
++++
+
+As a part of building [Oneil](https://github.com/careweather/oneil),
+I was tasked with figuring out how interval
 arithmetic would be handled during evaluation. Here's my analysis.
 The full source code can be found
 [on Github](https://github.com/pixilcode/interval-arithmetic-analysis).
