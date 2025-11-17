@@ -12,8 +12,6 @@ repo_view = true
 
 <!-- TODO: make a pollen function for intervals ($\langle <min>, <max> \rangle$) -->
 
-# Interval Arithmetic Paper Review
-
 As mentioned in a [previous post](/interval-arithmetic),
 I'm working on interval arithmetic for [Oneil](https://github.com/careweather/oneil).
 As a part of that, I read the paper
@@ -21,7 +19,7 @@ As a part of that, I read the paper
 by Q. Ju T. Hickey and M.H. van Emden. Here are my takeaways from
 it.
 
-## Interval Definition
+# Interval Definition
 
 Section 2 defines an interval as **closed** (as in, end-point inclusive)
 and **connected** (as in, there are no holes). It also states that there
@@ -44,7 +42,7 @@ head. Specifically, I hadn't previously considered the fact that an
 interval should be *closed*.
 
 
-## Inclusion Property
+# Inclusion Property
 
 Section 3.1 defines an **inclusion property**. In essence, this property
 says the following. Let $E$ be an expression with variables $v_1,...,v_n$.
@@ -65,7 +63,7 @@ My main takeaway from this section is that this property would be a great
 property to fuzz test.
 
 
-## Classification
+# Classification
 
 Section 4.3, and the corresponding Figure 1, define how intervals can be
 classified. Specifically, they define the following:
@@ -91,12 +89,12 @@ Regardless, this classification is essential for multiplication and
 division.
 
 
-## Operations
+# Operations
 
 Section 4.5-4.7 define operations for intervals. These definitions will be
 helpful for implementing the arithmetic.
 
-### Interval Addition and Subtraction
+## Interval Addition and Subtraction
 
 Theorem 4 in Section 4.5 defines addition as
 
@@ -113,7 +111,7 @@ $$
 Simple enough.
 
 
-### Interval Multiplication
+## Interval Multiplication
 
 Interval multiplication gets a little more complicated. Theorem 6 and
 Figure 3 in Section 4.6 define the operation of multiplication as the
@@ -134,7 +132,7 @@ Zero ($Z$)                     | Any ($P$,$M$,$N$,$Z$)          | $0$           
 Any ($P$,$M$,$N$,$Z$)          | Zero ($Z$)                     | $0$                                                          | $0$
 
 
-### Interval Division
+## Interval Division
 
 Interval division is the most complicated of the four operations. For
 example, $\langle 1,1 \rangle / \langle -\infty,1 \rangle$ produces
@@ -193,7 +191,7 @@ Negative1 ($N_1$)              | Negative1 ($N_1$)              | $\langle b / c
 Negative1 ($N_1$)              | Negative0 ($N_0$)              | $\langle b / c , \infty \rangle \backslash \{0\}$
 
 
-## Rounding
+# Rounding
 
 Section 5.3 makes an interesting point about rounding. Specifically, it
 points out that the best strategy for maintaining correctness with
@@ -204,7 +202,7 @@ Rounding is helpful for representing an infinite set of values (real numbers)
 in a finite system (floating-point numbers). Theorem 13, Figure 6 and Figure 7
 provide a guide on how rounding should be applied to arithmetic operations.
 
-## Remaining Questions
+# Remaining Questions
 
 While this provided a solid foundation on which to start, there are
 many other operations that I will need to delve into further to
@@ -226,7 +224,7 @@ when it's needed. The second option would likely be beneficial for those
 who never use intervals in their models, as they wouldn't have to pay the
 overhead associated with interval arithmetic.
 
-## Conclusion
+# Conclusion
 
 This paper was very helpful in laying out the basics of interval
 arithmetic and its implementation. It defined the properties of
