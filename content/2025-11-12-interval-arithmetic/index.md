@@ -4,7 +4,7 @@ description = "An analysis of different implementations of interval arithmetic"
 date = 2025-11-12
 
 [taxonomies]
-tags = ["oneil", "nim", "benchmark", "analysis"]
+tags = ["oneil", "nim", "benchmark", "analysis", "interval-arithmetic"]
 
 [extra]
 repo_view = true
