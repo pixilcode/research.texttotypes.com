@@ -79,7 +79,7 @@ type, since their parsing is similar to identifiers.
 
 Based on this new perspective, types should get their own
 node type since their *context* is different. This would
-allow me to develop types more effectively than just trying to
+allow me to develop types more effectively rather than just trying to
 make them work with just an identifier.
 
 Anyway, this may seem obvious to some, but it was a pretty
