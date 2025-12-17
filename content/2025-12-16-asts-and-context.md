@@ -64,7 +64,7 @@ struct Type(/* type info */)
 struct Ident(/* ident info */)
 ```
 
-The mind-blowing connection for me was between contexts and
+The mind-blowing connection for me was the connection between contexts and
 AST nodes. Each `struct` or `enum` defines a different
 *parsing context*. So this language would have a "program"
 context, a "definition" context, an "expression" context,
@@ -79,7 +79,7 @@ type, since their parsing is similar to identifiers.
 
 Based on this new perspective, types should get their own
 node type since their *context* is different. This would
-allow me to develop types more effectively than trying to
+allow me to develop types more effectively than just trying to
 make them work with just an identifier.
 
 Anyway, this may seem obvious to some, but it was a pretty
