@@ -294,3 +294,10 @@ bridge the dynamic and static world.
 > you use capability passing, the capabilities that you pass around are proofs
 > that you have access to a given resource. I guess that's a post for another
 > day, though.
+
+## Further Reading
+
+- [Everything Should Be Typed: Scalar Types Are Not Enough](https://sot.dev/everything-should-be-typed.html)
+
+**EDIT (2026-04-21):** Added a _Further Reading_ section
+
