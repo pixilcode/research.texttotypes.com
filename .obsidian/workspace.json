@@ -1,0 +1,205 @@
+{
+  "main": {
+    "id": "aaaa2a2abf7ccb09",
+    "type": "split",
+    "children": [
+      {
+        "id": "3e9c2cf76c6e225d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "97e1f9780ef8b979",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/2026-07-03-lock-picking-and-uplifting-communities.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-07-03-lock-picking-and-uplifting-communities"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6b135c0a5b59eba7",
+    "type": "split",
+    "children": [
+      {
+        "id": "5082bc29de23210f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aac677d9281d0aac",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b1ac2d5c44e2306d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d811286b753bd5b6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1101d88e96d220d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "8916f3a39742ebaa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c8c5f4c43ad195ff",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "da2fc5bb9cc170e6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "81cca7ce9542a1de",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "19ec19862e701a00",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "00e0fcca8c8af287",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "97e1f9780ef8b979",
+  "lastOpenFiles": [
+    "content/2026-04-15-specs-and-abstraction.md",
+    "content/2026-07-03-lock-picking-and-uplifting-communities.md",
+    "content/2026-04-01-chants-of-sennaar.md",
+    "Untitled.base",
+    "TODO.md",
+    "content/2025-01-31-interior-design-and-web-design.md",
+    "content/_index.md",
+    "content/2024-09-30-negation-as-failure.md",
+    "content/2024-10-03-fixed-point-types-mechanics.md",
+    "content/2025-03-12-fixed-point-parsing-essentials.md",
+    "content/2025-09-12-error-handling-unmatched-incomplete.md",
+    "content/2025-09-25-principles-of-good-code.md",
+    "content/2025-11-13-interval-arithmetic-paper-review.md",
+    "content/2025-12-16-asts-and-context.md",
+    "content/2026-02-20-newtypes-and-contracts.md",
+    "content/2025-11-12-interval-arithmetic/index.md",
+    "content/2025-11-12-interval-arithmetic/correctness.svg",
+    "content/2025-11-12-interval-arithmetic/bounds-math-comparison.svg",
+    "content/2025-11-12-interval-arithmetic/array-comparison.svg"
+  ]
+}

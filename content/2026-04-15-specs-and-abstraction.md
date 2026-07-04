@@ -2,7 +2,6 @@
 title = "Specifications and Abstraction"
 description = "Specifications are just another layer of abstraction"
 date = 2026-04-15
-draft = true
 
 [taxonomies]
 tags = ["specification", "ai"]
