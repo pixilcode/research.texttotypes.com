@@ -298,6 +298,9 @@ bridge the dynamic and static world.
 ## Further Reading
 
 - [Everything Should Be Typed: Scalar Types Are Not Enough](https://sot.dev/everything-should-be-typed.html)
+- [Safety in an `unsafe { world }`](https://joshlf.com/posts/safety-unsafe-world/)
 
 **EDIT (2026-04-21):** Added a _Further Reading_ section
+
+**EDIT (2026-07-31):** Added a link to "Safety in an `unsafe { world }`" to _Further Reading_
 
